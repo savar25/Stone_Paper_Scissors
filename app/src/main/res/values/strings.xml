@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Stone_Paper_Scissors</string>
+    <string name="player1">Player 1 Name\n(Leave Empty for Single Player)</string>
+    <string name="player2">Player 2 Name </string>
+    <string name="rounds">No. of Rounds</string>
+    <string name="go">LETS START!!!</string>
+    <string name="fgame">GAME OVER</string>
+    <string name="loop">Restart Game</string>
+    <string name="splayer">Single Player</string>
+</resources>

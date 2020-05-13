@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lakeblue"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:id="@+id/play1"
+        android:layout_width="257dp"
+        android:layout_height="282dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        android:weightSum="80"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/present1"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+
+
+            android:rotation="90" />
+
+        <LinearLayout
+            android:id="@+id/buttons1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="18dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="60"
+            android:orientation="horizontal"
+            android:weightSum="60">
+
+            <ImageButton
+                android:id="@+id/rock1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:background="#00aabb"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageButton
+                android:id="@+id/paper1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:background="#00aabb"
+                app:srcCompat="@drawable/paper2" />
+
+            <ImageButton
+                android:id="@+id/scissors1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#98d8d9"
+
+                app:srcCompat="@drawable/scissor2" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/play2"
+        android:layout_width="257dp"
+        android:layout_height="282dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="24dp"
+
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        android:weightSum="80"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/present2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+            android:rotation="270" />
+
+        <LinearLayout
+            android:id="@+id/buttons2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="22dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="60"
+            android:orientation="horizontal"
+            android:weightSum="60">
+
+            <ImageButton
+                android:id="@+id/rock2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:background="#00aabb"
+                app:srcCompat="@drawable/stone2" />
+
+            <ImageButton
+                android:id="@+id/paper2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:background="#00aabb"
+                app:srcCompat="@drawable/paper2" />
+
+            <ImageButton
+                android:id="@+id/scissors2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+
+                app:srcCompat="@drawable/scissor2" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/comment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/play2"
+        app:layout_constraintStart_toEndOf="@+id/play1"
+        app:layout_constraintTop_toBottomOf="@+id/score1" />
+
+    <TextView
+        android:id="@+id/score1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="15sp"
+        android:textColor="#aa1087"
+        android:textAlignment="center"
+        android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@+id/play2"
+        app:layout_constraintStart_toEndOf="@+id/play1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/score2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="15sp"
+        android:textColor="#901087"
+        android:textAlignment="center"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/play2"
+        app:layout_constraintStart_toEndOf="@+id/play1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
