@@ -35,7 +35,8 @@ public class main_game extends AppCompatActivity {
     LinearLayout play1,play2;
     int cho;
     CountDownTimer countDT;
-
+    ArrayList<ImageButton> player2Buttons;
+    ArrayList<ImageButton> player1Buttons;
 
     private static final String TAG = "main_game";
 
@@ -43,7 +44,6 @@ public class main_game extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_game);
-
 
 
             final Intent intent = getIntent();
@@ -87,7 +87,7 @@ public class main_game extends AppCompatActivity {
         comment = findViewById(R.id.comment);
         p1Score=findViewById(R.id.score1);
         p2Score=findViewById(R.id.score2);
-        randcount();
+
 
 
 
@@ -102,7 +102,7 @@ public class main_game extends AppCompatActivity {
 
 
 
-        ArrayList<ImageButton> player2Buttons = new ArrayList<>();
+        player2Buttons = new ArrayList<>();
 
 
         player2Buttons.add((ImageButton) findViewById(R.id.rock2));
@@ -114,7 +114,7 @@ public class main_game extends AppCompatActivity {
 
 
         if(cho==1) {
-            ArrayList<ImageButton> player1Buttons = new ArrayList<>();
+            player1Buttons = new ArrayList<>();
             player1Buttons.add((ImageButton) findViewById(R.id.rock1));
             player1Buttons.add((ImageButton) findViewById(R.id.paper1));
             player1Buttons.add((ImageButton) findViewById(R.id.scissors1));
@@ -142,7 +142,6 @@ public class main_game extends AppCompatActivity {
                     res1val = 1;
                     if (res2val != 3) {
                         randcount();
-
                     }
 
 
@@ -243,6 +242,8 @@ public class main_game extends AppCompatActivity {
                 }
             }
         });
+
+        randcount();
     }
 
 
@@ -257,7 +258,9 @@ public void randcount(){
         @Override
         public void onTick(long millisUntilFinished) {
             if (counter <= 7 && counter > 5 && checker!=1) {
+                if(counter==7){
 
+                }
                 if(res1val==res2val) {
                     comment.setText(results.get(res1val).get(res2val));
                     comment.setTextColor(Color.BLUE);
@@ -298,8 +301,20 @@ public void randcount(){
                         intent.putExtra("p2name", p2name);
                         startActivity(intent);
                     }
-                }
 
+                }
+                if(cho==1) {
+                    player1Buttons.get(0).setEnabled(false);
+                    player1Buttons.get(1).setEnabled(false);
+                    player1Buttons.get(2).setEnabled(false);
+                    player2Buttons.get(0).setEnabled(false);
+                    player2Buttons.get(1).setEnabled(false);
+                    player2Buttons.get(2).setEnabled(false);
+                }else if(cho==2){
+                    player2Buttons.get(0).setEnabled(false);
+                    player2Buttons.get(1).setEnabled(false);
+                    player2Buttons.get(2).setEnabled(false);
+                }
             }else if(counter==3) {
                 if (checker != 1) {
 
@@ -324,7 +339,18 @@ public void randcount(){
             counter=7;
             comment.setText("Choose!!");
             comment.setTextColor(Color.DKGRAY);
-
+            if(cho==1) {
+                player1Buttons.get(0).setEnabled(true);
+                player1Buttons.get(1).setEnabled(true);
+                player1Buttons.get(2).setEnabled(true);
+                player2Buttons.get(0).setEnabled(true);
+                player2Buttons.get(1).setEnabled(true);
+                player2Buttons.get(2).setEnabled(true);
+            }else if(cho==2){
+                player2Buttons.get(0).setEnabled(true);
+                player2Buttons.get(1).setEnabled(true);
+                player2Buttons.get(2).setEnabled(true);
+            }
             checker++;
             res2val=3;
             res1val=3;
@@ -362,5 +388,13 @@ public void addPoints(){
         outState.putInt("p1s",p1s);
         outState.putInt("p2s",p2s);
         outState.putInt("checker",checker);
+    }
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Intent pa = new Intent(main_game.this, MainActivity.class);
+        startActivity(pa);
     }
 }
